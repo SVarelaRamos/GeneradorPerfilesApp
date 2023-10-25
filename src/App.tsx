@@ -10,10 +10,16 @@ enum stringFormatEnum {
 	StartCase
 }
 
-const lngs = {
-	en: { nativeName: 'English' },
+interface LangsType {
+	gl: { nativeName: string }
+	es: { nativeName: string }
+	en: { nativeName: string }
+}
+
+const lngs: LangsType = {
 	gl: { nativeName: 'Galego' },
-	es: { nativeName: 'Castellano' }
+	es: { nativeName: 'Castellano' },
+	en: { nativeName: 'English' }
 }
 
 const avaliableLangs: string[] = Object.keys(lngs)
@@ -102,13 +108,13 @@ function App() {
 							type='submit'
 							onClick={async () => await i18n.changeLanguage(lng)}
 						>
-							{lngs[lng].nativeName}
+							{lngs[lng as keyof LangsType].nativeName}
 						</button>
 					))}
 				</div>
 				<h1>{t('header.title')}</h1>
 			</header>
-			<main className='mt-8 h-screen rounded border border-blue-200 p-10'>
+			<main className='mt-8 h-screen rounded border border-blue-200 p-10 shadow-2xl shadow-blue-400/20'>
 				<section className='flex w-full flex-row justify-around'>
 					<div className='flex flex-grow flex-row justify-start'>
 						<form onSubmit={handleSubmit} className='flex flex-row justify-start gap-5'>
@@ -116,7 +122,7 @@ function App() {
 								className='justify-start rounded border border-blue-200 px-6 py-1 hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400'
 								type='submit'
 							>
-								Xerar
+								{t('button.generate')}
 							</button>
 							<div className='flex flex-grow flex-row justify-start gap-1'>
 								<input
@@ -146,64 +152,147 @@ function App() {
 					</div>
 					<div className='flex flex-grow flex-row justify-end gap-5'>
 						<button onClick={handleClickUpercase} className={classNameUpercaseButton} type='button'>
-							MAIÚSCULAS
+							{t('button.uppercase')}
 						</button>
 						<button
 							onClick={handleClickLowercase}
 							className={classNameLowercaseButton}
 							type='button'
 						>
-							minúsculas
+							{t('button.lowercase')}
 						</button>
 						<button
 							onClick={handleClickStartCase}
 							className={classNameStartcaseButton}
 							type='button'
 						>
-							Start Case
+							{t('button.startcase')}
 						</button>
 					</div>
 				</section>
 				<section className='mt-12 flex flex-col gap-5'>
 					<div className='flex flex-row flex-wrap gap-10'>
-						<Field width='w-72' labelName='Nome' value={formatValue('Manuel')} />
-						<Field width='w-72' labelName='Primeiro apelido' value={formatValue('Martinez')} />
-						<Field width='w-72' labelName='Segundo apelido' value={formatValue('Díaz')} />
-						<Field width='w-32' labelName='NIF' value={'33333333P'} />
-					</div>
-					<div className='flex flex-row flex-wrap gap-10'>
-						<Field width='w-28' labelName='Tipo de vía' value={formatValue('RÚA')} />
-						<Field width='w-96' labelName='Nome da vía' value={formatValue('ROSALÍA DE CASTRO')} />
-						<Field width='w-12' labelName='Número' value={formatValue('34')} />
-						<Field width='w-12' labelName='Bloque' value={formatValue('A')} />
-						<Field width='w-12' labelName='Andar' value={formatValue('4')} />
-						<Field width='w-12' labelName='Porta' value={formatValue('J')} />
-					</div>
-					<div className='flex flex-row flex-wrap gap-10'>
-						<Field width='w-96' labelName='Parroquia' value={formatValue('SAN JUAN')} />
-						<Field width='w-96' labelName='Lugar' value={formatValue('A RIVA')} />
-					</div>
-					<div className='flex flex-row flex-wrap gap-10'>
-						<Field width='w-28' labelName='CP' value={formatValue('15700')} />
-						<Field width='w-72' labelName='Provincia' value={formatValue('A Coruña')} />
 						<Field
 							width='w-72'
-							labelName='Concello'
-							value={formatValue('Santiago de Compostela')}
+							labelName={t('field.name')}
+							value={formatValue('Manuel')}
+							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
 							width='w-72'
-							labelName='Localidade'
-							value={formatValue('Santiago de compostela')}
+							labelName={t('field.firstLastName')}
+							value={formatValue('Martinez')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-72'
+							labelName={t('field.secondLastName')}
+							value={formatValue('Díaz')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-32'
+							labelName={t('field.nif')}
+							value={'33333333P'}
+							tooltipText={t('tooltip.clickToCopy')}
 						/>
 					</div>
 					<div className='flex flex-row flex-wrap gap-10'>
-						<Field width='w-28' labelName='Telefono' value={formatValue('981556688')} />
-						<Field width='w-28' labelName='Telefono Móvil' value={formatValue('666556688')} />
+						<Field
+							width='w-28'
+							labelName={t('field.streetType')}
+							value={formatValue('RÚA')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
 						<Field
 							width='w-96'
-							labelName='Correo electrónico'
+							labelName={t('field.streetName')}
+							value={formatValue('ROSALÍA DE CASTRO')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-12'
+							labelName={t('field.number')}
+							value={formatValue('34')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-12'
+							labelName={t('field.block')}
+							value={formatValue('A')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-12'
+							labelName={t('field.floor')}
+							value={formatValue('4')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-12'
+							labelName={t('field.door')}
+							value={formatValue('J')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+					</div>
+					<div className='flex flex-row flex-wrap gap-10'>
+						<Field
+							width='w-96'
+							labelName={t('field.parish')}
+							value={formatValue('SAN JUAN')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-96'
+							labelName={t('field.city')}
+							value={formatValue('A RIVA')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+					</div>
+					<div className='flex flex-row flex-wrap gap-10'>
+						<Field
+							width='w-28'
+							labelName={t('field.cp')}
+							value={formatValue('15700')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-72'
+							labelName={t('field.province')}
+							value={formatValue('A Coruña')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-72'
+							labelName={t('field.municipality')}
+							value={formatValue('Santiago de Compostela')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-72'
+							labelName={t('field.locality')}
+							value={formatValue('Santiago de compostela')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+					</div>
+					<div className='flex flex-row flex-wrap gap-10'>
+						<Field
+							width='w-28'
+							labelName={t('field.phone')}
+							value={formatValue('981556688')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-28'
+							labelName={t('field.mobilePhone')}
+							value={formatValue('666556688')}
+							tooltipText={t('tooltip.clickToCopy')}
+						/>
+						<Field
+							width='w-96'
+							labelName={t('field.email')}
 							value={'manuel.martinez@galicia.org'}
+							tooltipText={t('tooltip.clickToCopy')}
 						/>
 					</div>
 				</section>

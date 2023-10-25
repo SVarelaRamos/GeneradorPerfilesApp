@@ -1,0 +1,35 @@
+{
+  "header": {
+    "title": "Xerador de perfís"
+  },
+  "button": {
+    "generate": "Xerar",
+    "uppercase": "MAIÚSCULAS",
+    "lowercase": "minúsculas",
+    "startcase": "Start Case"
+  },
+  "field": {
+    "name": "Nome",
+    "firstLastName": "Primeiro Apelido",
+    "secondLastName": "Segundo Apelido",
+    "nif": "NIF",
+    "streetType": "Tipo de vía",
+    "streetName": "Nome da vía",
+    "number": "Número",
+    "block": "Bloque",
+    "floor": "Andar",
+    "door": "Porta",
+    "parish": "Parroquia",
+    "city": "Lugar",
+    "cp": "CP",
+    "province": "Provincia",
+    "municipality": "Concello",
+    "locality": "Localidad",
+    "phone": "Teléfono",
+    "mobilePhone": "Teléfono Móbil",
+    "email": "Correo electrónico"
+  },
+  "tooltip": {
+    "clickToCopy": "Clica para copiar"
+  }
+}

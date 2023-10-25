@@ -1,0 +1,35 @@
+{
+  "header": {
+    "title": "Profile generator"
+  },
+  "button": {
+    "generate": "Generate",
+    "uppercase": "UPPERCASE",
+    "lowercase": "lowercase",
+    "startcase": "Start Case"
+  },
+  "field": {
+    "name": "Name",
+    "firstLastName": "First lastname",
+    "secondLastName": "Second lastname",
+    "nif": "NIF",
+    "streetType": "Street type",
+    "streetName": "Street",
+    "number": "Number",
+    "block": "Block",
+    "floor": "Floor",
+    "door": "Door",
+    "parish": "Parish",
+    "city": "City",
+    "cp": "Post code",
+    "province": "Province",
+    "municipality": "Municipality",
+    "locality": "Locality",
+    "phone": "Phone",
+    "mobilePhone": "Mobile Phone",
+    "email": "Email"
+  },
+  "tooltip": {
+    "clickToCopy": "Click to copy"
+  }
+}

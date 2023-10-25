@@ -4,9 +4,15 @@ interface FieldProps {
 	width: string
 	labelName: string
 	value: string
+	tooltipText?: string
 }
 
-export default function Field({ width, labelName, value }: FieldProps) {
+export default function Field({
+	width,
+	labelName,
+	value,
+	tooltipText = 'Clica para copiar'
+}: FieldProps) {
 	const widthClass: string = `flex flex-col justify-start ${width}`
 	const handleOnClick = async () => {
 		await navigator.clipboard.writeText(value)
@@ -31,7 +37,7 @@ export default function Field({ width, labelName, value }: FieldProps) {
 					color: 'rgb(255 255 255)'
 				}}
 				anchorSelect='.copy-field-tooltip'
-				content='Clica para copiar'
+				content={tooltipText}
 			/>
 		</>
 	)

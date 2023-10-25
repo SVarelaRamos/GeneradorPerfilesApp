@@ -1,0 +1,35 @@
+{
+  "header": {
+    "title": "Generador de perfiles"
+  },
+  "button": {
+    "generate": "Generar",
+    "uppercase": "MAYUSCULAS",
+    "lowercase": "minúsculas",
+    "startcase": "Start Case"
+  },
+  "field": {
+    "name": "Nombre",
+    "firstLastName": "Primer Apellido",
+    "secondLastName": "Segundo Apellido",
+    "nif": "NIF",
+    "streetType": "Tipo de vía",
+    "streetName": "Nombre de la vía",
+    "number": "Número",
+    "block": "Bloque",
+    "floor": "Piso",
+    "door": "Puerta",
+    "parish": "Parroquia",
+    "city": "Lugar",
+    "cp": "CP",
+    "province": "Provincia",
+    "municipality": "Ayuntamiento",
+    "locality": "Localidad",
+    "phone": "Teléfono",
+    "mobilePhone": "Teléfono Móvil",
+    "email": "Correo electrónico"
+  },
+  "tooltip": {
+    "clickToCopy": "Clica para copiar"
+  }
+}
