@@ -17,7 +17,7 @@ export default function Field({ width, labelName, value }: FieldProps) {
 				<label className='flex justify-start text-xs opacity-50'>{labelName}</label>
 				<span
 					onClick={handleOnClick}
-					className='copy-field-tooltip flex justify-start border-b-2 border-blue-200 hover:bg-blue-200 hover:text-gray-800 transition-colors cursor-pointer active:bg-blue-400 ease-in-out duration-200 px-1 pt-2 pb-1 mt-1 relative overflow-hidden'
+					className='copy-field-tooltip relative mt-1 flex cursor-pointer justify-start overflow-hidden border-b-2 border-blue-200 px-1 pb-1 pt-2 transition-colors duration-200 ease-in-out hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400'
 				>
 					{value}
 				</span>

@@ -89,14 +89,14 @@ function App() {
 	return (
 		<>
 			<header>
-				<div className='flex flex-row flex-grow justify-end gap-3'>
+				<div className='flex flex-grow flex-row justify-end gap-3'>
 					{avaliableLangs.map((lng: string) => (
 						<button
 							key={lng}
 							style={{
 								fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal'
 							}}
-							className={`border border-blue-200 active:bg-blue-400 py-1 px-4 rounded hover:bg-blue-200 hover:text-gray-800 justify-start text-xs ${
+							className={`justify-start rounded border border-blue-200 px-4 py-1 text-xs hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400 ${
 								i18n.resolvedLanguage === lng ? 'bg-blue-200 text-gray-800' : ''
 							}`}
 							type='submit'
@@ -108,19 +108,19 @@ function App() {
 				</div>
 				<h1>{t('header.title')}</h1>
 			</header>
-			<main className='mt-8 border border-blue-200 rounded p-10 h-screen'>
-				<section className='flex flex-row justify-around w-full'>
-					<div className='flex flex-row flex-grow justify-start'>
+			<main className='mt-8 h-screen rounded border border-blue-200 p-10'>
+				<section className='flex w-full flex-row justify-around'>
+					<div className='flex flex-grow flex-row justify-start'>
 						<form onSubmit={handleSubmit} className='flex flex-row justify-start gap-5'>
 							<button
-								className='border border-blue-200 active:bg-blue-400 py-1 px-6 rounded hover:bg-blue-200 hover:text-gray-800 justify-start'
+								className='justify-start rounded border border-blue-200 px-6 py-1 hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400'
 								type='submit'
 							>
 								Xerar
 							</button>
-							<div className='flex flex-row flex-grow justify-start gap-1'>
+							<div className='flex flex-grow flex-row justify-start gap-1'>
 								<input
-									className='bg-blue-200 text-gray-800 text-center rounded w-12'
+									className='w-12 rounded bg-blue-200 text-center text-gray-800'
 									type='text'
 									min='1'
 									max='10'
@@ -129,14 +129,14 @@ function App() {
 								/>
 								<button
 									onClick={handleClickMinus}
-									className='border border-blue-200 active:bg-blue-400 py-1 px-4 rounded hover:bg-blue-200 hover:text-gray-800 justify-start'
+									className='justify-start rounded border border-blue-200 px-4 py-1 hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400'
 									type='button'
 								>
 									-
 								</button>
 								<button
 									onClick={handleClickPlus}
-									className='border border-blue-200 active:bg-blue-400 py-1 px-4 rounded hover:bg-blue-200 hover:text-gray-800 justify-start'
+									className='justify-start rounded border border-blue-200 px-4 py-1 hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400'
 									type='button'
 								>
 									+
@@ -144,7 +144,7 @@ function App() {
 							</div>
 						</form>
 					</div>
-					<div className='flex flex-row flex-grow justify-end gap-5'>
+					<div className='flex flex-grow flex-row justify-end gap-5'>
 						<button onClick={handleClickUpercase} className={classNameUpercaseButton} type='button'>
 							MAIÚSCULAS
 						</button>
@@ -164,14 +164,14 @@ function App() {
 						</button>
 					</div>
 				</section>
-				<section className='flex flex-col mt-12 gap-5'>
-					<div className='flex flex-row gap-10 flex-wrap'>
+				<section className='mt-12 flex flex-col gap-5'>
+					<div className='flex flex-row flex-wrap gap-10'>
 						<Field width='w-72' labelName='Nome' value={formatValue('Manuel')} />
 						<Field width='w-72' labelName='Primeiro apelido' value={formatValue('Martinez')} />
 						<Field width='w-72' labelName='Segundo apelido' value={formatValue('Díaz')} />
 						<Field width='w-32' labelName='NIF' value={'33333333P'} />
 					</div>
-					<div className='flex flex-row gap-10 flex-wrap'>
+					<div className='flex flex-row flex-wrap gap-10'>
 						<Field width='w-28' labelName='Tipo de vía' value={formatValue('RÚA')} />
 						<Field width='w-96' labelName='Nome da vía' value={formatValue('ROSALÍA DE CASTRO')} />
 						<Field width='w-12' labelName='Número' value={formatValue('34')} />
@@ -179,11 +179,11 @@ function App() {
 						<Field width='w-12' labelName='Andar' value={formatValue('4')} />
 						<Field width='w-12' labelName='Porta' value={formatValue('J')} />
 					</div>
-					<div className='flex flex-row gap-10 flex-wrap'>
+					<div className='flex flex-row flex-wrap gap-10'>
 						<Field width='w-96' labelName='Parroquia' value={formatValue('SAN JUAN')} />
 						<Field width='w-96' labelName='Lugar' value={formatValue('A RIVA')} />
 					</div>
-					<div className='flex flex-row gap-10 flex-wrap'>
+					<div className='flex flex-row flex-wrap gap-10'>
 						<Field width='w-28' labelName='CP' value={formatValue('15700')} />
 						<Field width='w-72' labelName='Provincia' value={formatValue('A Coruña')} />
 						<Field
@@ -197,7 +197,7 @@ function App() {
 							value={formatValue('Santiago de compostela')}
 						/>
 					</div>
-					<div className='flex flex-row gap-10 flex-wrap'>
+					<div className='flex flex-row flex-wrap gap-10'>
 						<Field width='w-28' labelName='Telefono' value={formatValue('981556688')} />
 						<Field width='w-28' labelName='Telefono Móvil' value={formatValue('666556688')} />
 						<Field

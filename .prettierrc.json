@@ -14,5 +14,6 @@
       }
     }
   ],
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
