@@ -77,16 +77,22 @@ function App() {
 	}
 
 	const classNameCaseButton =
-		'border border-blue-200 active:bg-blue-400 py-1 px-6 rounded hover:bg-blue-200 hover:text-gray-800'
+		'border border-blue-200 active:bg-gradient-to-bl active:from-blue-300 active:to-blue-200 py-1 px-6 rounded hover:shadow-md hover:shadow-blue-400/20 hover:bg-gradient-to-bl hover:from-slate-400 hover:to-blue-200 hover:text-gray-800'
 	const classNameUpercaseButton =
 		classNameCaseButton +
-		(stringFormatEnum.Upercase === stringFormat ? ' bg-blue-200 text-gray-800' : '')
+		(stringFormatEnum.Upercase === stringFormat
+			? ' bg-gradient-to-bl from-slate-400 to-blue-200 text-gray-800 shadow-md shadow-blue-400/20'
+			: '')
 	const classNameLowercaseButton =
 		classNameCaseButton +
-		(stringFormatEnum.Lowercase === stringFormat ? ' bg-blue-200 text-gray-800' : '')
+		(stringFormatEnum.Lowercase === stringFormat
+			? ' bg-gradient-to-bl from-slate-400 to-blue-200 text-gray-800 shadow-md shadow-blue-400/20'
+			: '')
 	const classNameStartcaseButton =
 		classNameCaseButton +
-		(stringFormatEnum.StartCase === stringFormat ? ' bg-blue-200 text-gray-800' : '')
+		(stringFormatEnum.StartCase === stringFormat
+			? ' bg-gradient-to-bl from-slate-400 to-blue-200 text-gray-800 shadow-md shadow-blue-400/20'
+			: '')
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -102,8 +108,10 @@ function App() {
 							style={{
 								fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal'
 							}}
-							className={`justify-start rounded border border-blue-200 px-4 py-1 text-xs hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400 ${
-								i18n.resolvedLanguage === lng ? 'bg-blue-200 text-gray-800' : ''
+							className={`justify-start rounded border border-blue-200 px-4 py-1 text-xs hover:bg-gradient-to-bl hover:from-slate-400 hover:to-blue-200 hover:text-gray-800 hover:shadow-md hover:shadow-blue-400/20 active:bg-gradient-to-bl active:from-blue-300 active:to-blue-200 ${
+								i18n.resolvedLanguage === lng
+									? 'bg-gradient-to-bl from-slate-400 to-blue-200 text-gray-800 shadow-md shadow-blue-400/20'
+									: ''
 							}`}
 							type='submit'
 							onClick={async () => await i18n.changeLanguage(lng)}
@@ -112,14 +120,14 @@ function App() {
 						</button>
 					))}
 				</div>
-				<h1>{t('header.title')}</h1>
+				<h1 className='mt-8'>{t('header.title')}</h1>
 			</header>
-			<main className='mt-8 h-screen rounded border border-blue-200 p-10 shadow-2xl shadow-blue-400/20'>
-				<section className='flex w-full flex-row justify-around'>
+			<main className='mt-8 h-screen rounded border border-blue-200 p-10 shadow-2xl shadow-blue-400/20 backdrop-blur-md backdrop-brightness-90'>
+				<section className='flex w-full flex-row flex-wrap justify-around gap-5'>
 					<div className='flex flex-grow flex-row justify-start'>
 						<form onSubmit={handleSubmit} className='flex flex-row justify-start gap-5'>
 							<button
-								className='justify-start rounded border border-blue-200 px-6 py-1 hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400'
+								className='justify-start rounded border border-blue-200 px-6 py-1 hover:bg-gradient-to-bl hover:from-slate-400 hover:to-blue-200 hover:text-gray-800 active:bg-gradient-to-bl active:from-blue-300 active:to-blue-200'
 								type='submit'
 							>
 								{t('button.generate')}
@@ -135,14 +143,14 @@ function App() {
 								/>
 								<button
 									onClick={handleClickMinus}
-									className='justify-start rounded border border-blue-200 px-4 py-1 hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400'
+									className='justify-start rounded border border-blue-200 px-4 py-1 hover:bg-gradient-to-bl hover:from-slate-400 hover:to-blue-200 hover:text-gray-800 hover:shadow-md hover:shadow-blue-400/20 active:bg-gradient-to-bl active:from-blue-300 active:to-blue-200'
 									type='button'
 								>
 									-
 								</button>
 								<button
 									onClick={handleClickPlus}
-									className='justify-start rounded border border-blue-200 px-4 py-1 hover:bg-blue-200 hover:text-gray-800 active:bg-blue-400'
+									className='justify-start rounded border border-blue-200 px-4 py-1 hover:bg-gradient-to-bl hover:from-slate-400 hover:to-blue-200 hover:text-gray-800 hover:shadow-md hover:shadow-blue-400/20 active:bg-gradient-to-bl active:from-blue-300 active:to-blue-200'
 									type='button'
 								>
 									+
@@ -150,7 +158,7 @@ function App() {
 							</div>
 						</form>
 					</div>
-					<div className='flex flex-grow flex-row justify-end gap-5'>
+					<div className='flex flex-grow  flex-row flex-wrap-reverse justify-end gap-5'>
 						<button onClick={handleClickUpercase} className={classNameUpercaseButton} type='button'>
 							{t('button.uppercase')}
 						</button>
