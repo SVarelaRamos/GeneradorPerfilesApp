@@ -181,25 +181,25 @@ function App() {
 				<section className='mt-12 flex flex-col gap-5'>
 					<div className='flex flex-row flex-wrap gap-10'>
 						<Field
-							width='w-72'
+							width='flex-[2]'
 							labelName={t('field.name')}
 							value={formatValue('Manuel')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-72'
+							width='flex-[2]'
 							labelName={t('field.firstLastName')}
 							value={formatValue('Martinez')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-72'
+							width='flex-[2]'
 							labelName={t('field.secondLastName')}
 							value={formatValue('Díaz')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-32'
+							width='flex-1'
 							labelName={t('field.nif')}
 							value={'33333333P'}
 							tooltipText={t('tooltip.clickToCopy')}
@@ -207,37 +207,37 @@ function App() {
 					</div>
 					<div className='flex flex-row flex-wrap gap-10'>
 						<Field
-							width='w-28'
+							width='flex-[2]'
 							labelName={t('field.streetType')}
 							value={formatValue('RÚA')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-96'
+							width='flex-[8]'
 							labelName={t('field.streetName')}
 							value={formatValue('ROSALÍA DE CASTRO')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-12'
+							width='flex-1'
 							labelName={t('field.number')}
 							value={formatValue('34')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-12'
+							width='flex-1'
 							labelName={t('field.block')}
 							value={formatValue('A')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-12'
+							width='flex-1'
 							labelName={t('field.floor')}
 							value={formatValue('4')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-12'
+							width='flex-1'
 							labelName={t('field.door')}
 							value={formatValue('J')}
 							tooltipText={t('tooltip.clickToCopy')}
@@ -245,13 +245,13 @@ function App() {
 					</div>
 					<div className='flex flex-row flex-wrap gap-10'>
 						<Field
-							width='w-96'
+							width='flex-1'
 							labelName={t('field.parish')}
 							value={formatValue('SAN JUAN')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-96'
+							width='flex-1'
 							labelName={t('field.city')}
 							value={formatValue('A RIVA')}
 							tooltipText={t('tooltip.clickToCopy')}
@@ -259,25 +259,25 @@ function App() {
 					</div>
 					<div className='flex flex-row flex-wrap gap-10'>
 						<Field
-							width='w-28'
+							width='flex-1'
 							labelName={t('field.cp')}
 							value={formatValue('15700')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-72'
+							width='flex-[2]'
 							labelName={t('field.province')}
 							value={formatValue('A Coruña')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-72'
+							width='flex-[4]'
 							labelName={t('field.municipality')}
 							value={formatValue('Santiago de Compostela')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-72'
+							width='flex-[4]'
 							labelName={t('field.locality')}
 							value={formatValue('Santiago de compostela')}
 							tooltipText={t('tooltip.clickToCopy')}
@@ -285,19 +285,19 @@ function App() {
 					</div>
 					<div className='flex flex-row flex-wrap gap-10'>
 						<Field
-							width='w-28'
+							width='flex-1'
 							labelName={t('field.phone')}
 							value={formatValue('981556688')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-28'
+							width='flex-1'
 							labelName={t('field.mobilePhone')}
 							value={formatValue('666556688')}
 							tooltipText={t('tooltip.clickToCopy')}
 						/>
 						<Field
-							width='w-96'
+							width='flex-[3]'
 							labelName={t('field.email')}
 							value={'manuel.martinez@galicia.org'}
 							tooltipText={t('tooltip.clickToCopy')}

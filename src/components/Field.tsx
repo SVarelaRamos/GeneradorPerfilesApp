@@ -20,10 +20,12 @@ export default function Field({
 	return (
 		<>
 			<div className={widthClass}>
-				<label className='flex justify-start text-xs opacity-50'>{labelName}</label>
+				<label className='flex justify-start whitespace-nowrap text-xs opacity-50'>
+					{labelName}
+				</label>
 				<span
 					onClick={handleOnClick}
-					className='copy-field-tooltip relative mt-1 flex cursor-pointer justify-start overflow-hidden border-b-2 border-blue-200 px-2 pb-1 pt-2 transition-colors duration-200 ease-in-out hover:rounded hover:bg-gradient-to-bl hover:from-slate-400 hover:to-blue-200 hover:text-gray-800 hover:shadow-md hover:shadow-blue-400/20  active:bg-gradient-to-bl active:from-blue-300 active:to-blue-200'
+					className='copy-field-tooltip relative mt-1 flex cursor-pointer justify-start overflow-hidden whitespace-nowrap border-b-2 border-blue-200 px-2 pb-1 pt-2 transition-colors duration-200 ease-in-out hover:rounded hover:bg-gradient-to-bl hover:from-slate-400 hover:to-blue-200 hover:text-gray-800 hover:shadow-md hover:shadow-blue-400/20  active:bg-gradient-to-bl active:from-blue-300 active:to-blue-200'
 				>
 					{value}
 				</span>
