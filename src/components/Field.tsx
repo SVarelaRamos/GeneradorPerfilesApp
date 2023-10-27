@@ -1,4 +1,5 @@
 import { Tooltip } from 'react-tooltip'
+import { colors } from '../helpers/colorsHelper'
 
 interface FieldProps {
 	width: string
@@ -25,7 +26,7 @@ export default function Field({
 				</label>
 				<span
 					onClick={handleOnClick}
-					className='copy-field-tooltip relative mt-1 flex cursor-pointer justify-start overflow-hidden whitespace-nowrap border-b-2 border-blue-200 px-2 pb-1 pt-2 transition-colors duration-200 ease-in-out hover:rounded hover:bg-gradient-to-bl hover:from-slate-400 hover:to-blue-200 hover:text-gray-800 hover:shadow-md hover:shadow-blue-400/20  active:bg-gradient-to-bl active:from-blue-300 active:to-blue-200'
+					className={`copy-field-tooltip relative mt-1 flex cursor-pointer justify-start overflow-hidden whitespace-nowrap border-b-2 px-2 pb-1 pt-2 transition-colors duration-200 ease-in-out hover:rounded hover:bg-gradient-to-bl hover:shadow-md active:bg-gradient-to-bl ${colors.border} ${colors.hover} ${colors.active}`}
 				>
 					{value}
 				</span>
@@ -33,10 +34,10 @@ export default function Field({
 			<Tooltip
 				id='copy-field-tooltip'
 				style={{
-					backgroundColor: 'rgb(59 130 246)',
+					backgroundColor: colors.tooltip.dark.background,
 					fontSize: '0.75rem',
 					lineHeight: '1rem',
-					color: 'rgb(255 255 255)'
+					color: colors.tooltip.dark.text
 				}}
 				anchorSelect='.copy-field-tooltip'
 				content={tooltipText}
