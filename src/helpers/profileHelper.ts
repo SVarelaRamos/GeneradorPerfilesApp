@@ -21,7 +21,6 @@ export enum stringFormatEnum {
 }
 
 export const formatProfile = (stringFormat = stringFormatEnum.Upercase) => {
-	console.log(stringFormat)
 	const uppercaseLetters = Array.from({ length: 26 }, (_, index) =>
 		String.fromCharCode('A'.charCodeAt(0) + index)
 	)
@@ -29,7 +28,6 @@ export const formatProfile = (stringFormat = stringFormatEnum.Upercase) => {
 	const { nombres: nombresData } = JSON.parse(JSON.stringify(nombres))
 	const { apellidos: apellidosData } = JSON.parse(JSON.stringify(apellidos))
 	const { calles: callesData } = JSON.parse(JSON.stringify(calles))
-	console.log(callesData, nombresData, apellidosData)
 	const randName = nombresData[Math.floor(Math.random() * nombresData.length)]
 	const randFirstLastname = apellidosData[Math.floor(Math.random() * apellidosData.length)]
 	const randSecondLastname = apellidosData[Math.floor(Math.random() * apellidosData.length)]

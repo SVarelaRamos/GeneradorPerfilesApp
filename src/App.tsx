@@ -90,7 +90,6 @@ function App() {
 
 	const generateProfiles = (stringFormat: stringFormatEnum) => {
 		const profiles: ProfileProps[] = []
-		console.log(stringFormat)
 		for (let i = 0; i < profileNum; i++) {
 			profiles.push(formatProfile(stringFormat))
 		}
