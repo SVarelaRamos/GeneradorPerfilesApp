@@ -26,6 +26,8 @@ const lngs: LangsType = {
 
 const avaliableLangs: string[] = Object.keys(lngs)
 
+const MAX_PROFILES = 5
+
 function App() {
 	const componentsColors = {
 		base: `${colors.border} ${colors.hover} ${colors.active}`,
@@ -41,7 +43,7 @@ function App() {
 	const [profiles, setProfiles] = useState([] as ProfileProps[])
 
 	const addProfileNum = () => {
-		if (profileNum === 10) return
+		if (profileNum === MAX_PROFILES) return
 		setProfileNum(profileNum + 1)
 	}
 	const subtractProfileNum = () => {
