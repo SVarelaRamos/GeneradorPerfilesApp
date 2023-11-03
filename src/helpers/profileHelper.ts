@@ -28,7 +28,9 @@ export const formatProfile = (stringFormat = stringFormatEnum.Upercase) => {
 	const { nombres: nombresData } = JSON.parse(JSON.stringify(nombres))
 	const { apellidos: apellidosData } = JSON.parse(JSON.stringify(apellidos))
 	const { calles: callesData } = JSON.parse(JSON.stringify(calles))
-	const randName = nombresData[Math.floor(Math.random() * nombresData.length)].replace(/\./g, '')
+	const randName = nombresData[Math.floor(Math.random() * nombresData.length)]
+		.replace(/\. /g, ' ')
+		.replace(/\./g, ' ')
 	const randFirstLastname = apellidosData[Math.floor(Math.random() * apellidosData.length)]
 	const randSecondLastname = apellidosData[Math.floor(Math.random() * apellidosData.length)]
 	const randAddress = addressData[Math.floor(Math.random() * addressData.length)]
