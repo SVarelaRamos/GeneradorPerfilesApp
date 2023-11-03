@@ -43,10 +43,11 @@ export const formatProfile = (stringFormat = stringFormatEnum.Upercase) => {
 	const randStreetType = randStreet.split(' ')[0]
 	const randDoor = uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)]
 	const randEmail = `${randName}.${randFirstLastname}@mail.gal`
-		.replace(' ', '_')
-		.replace('ª', 'a')
-		.replace('º', 'o')
-		.replace('ñ', 'nh')
+		.replace(/ /g, '_')
+		.replace(/ª/g, 'a')
+		.replace(/º/g, 'o')
+		.replace(/ñ/g, 'nh')
+		.normalize('NFD')
 
 	return {
 		name: formatValue(randName, stringFormat),
