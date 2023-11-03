@@ -28,6 +28,14 @@ const avaliableLangs: string[] = Object.keys(lngs)
 
 const MAX_PROFILES = 5
 
+const generateProfiles = (stringFormat: stringFormatEnum, profileNum: number) => {
+	const profiles: ProfileProps[] = []
+	for (let i = 0; i < profileNum; i++) {
+		profiles.push(formatProfile(stringFormat))
+	}
+	return profiles
+}
+
 function App() {
 	const componentsColors = {
 		base: `${colors.border} ${colors.hover} ${colors.active}`,
@@ -36,11 +44,11 @@ function App() {
 
 	const { t, i18n } = useTranslation()
 
-	const [stringFormat, setStringFormat] = useState(stringFormatEnum.StartCase)
+	const [stringFormat, setStringFormat] = useState(stringFormatEnum.Upercase)
 
 	const [profileNum, setProfileNum] = useState(1)
 
-	const [profiles, setProfiles] = useState([] as ProfileProps[])
+	const [profiles, setProfiles] = useState(generateProfiles(stringFormat, profileNum))
 
 	const addProfileNum = () => {
 		if (profileNum === MAX_PROFILES) return
@@ -85,17 +93,11 @@ function App() {
 			? ` bg-gradient-to-bl shadow-md ${componentsColors.selected}`
 			: '')
 
+	// setProfiles(perfilesTemp)
+
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
-		generateProfiles(stringFormat)
-	}
-
-	const generateProfiles = (stringFormat: stringFormatEnum) => {
-		const profiles: ProfileProps[] = []
-		for (let i = 0; i < profileNum; i++) {
-			profiles.push(formatProfile(stringFormat))
-		}
-		setProfiles(profiles)
+		setProfiles(generateProfiles(stringFormat, profileNum))
 	}
 
 	return (

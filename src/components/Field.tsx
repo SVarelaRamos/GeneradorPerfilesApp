@@ -26,7 +26,7 @@ export default function Field({
 				</label>
 				<span
 					onClick={handleOnClick}
-					className={`copy-field-tooltip relative mt-1 flex cursor-pointer justify-start overflow-hidden whitespace-nowrap border-b-2 px-2 pb-1 pt-2 transition-colors duration-200 ease-in-out hover:rounded hover:bg-gradient-to-bl hover:shadow-md active:bg-gradient-to-bl ${colors.border} ${colors.hover} ${colors.active}`}
+					className={`copy-field-tooltip relative mt-1 flex cursor-pointer justify-start overflow-hidden whitespace-nowrap border-b-2 px-2 pb-1 pt-2 transition-[background-color] duration-100 ease-in-out hover:rounded hover:bg-gradient-to-bl hover:shadow-md active:bg-gradient-to-bl ${colors.border} ${colors.hover} ${colors.active}`}
 				>
 					{value}
 				</span>
