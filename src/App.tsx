@@ -4,7 +4,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 import './App.css'
 import Profile, { type ProfileProps } from './components/Profile'
 import { colors } from './helpers/colorsHelper'
-import { formatProfile } from './helpers/profileHelper'
+import { buildProfile, formatProfile } from './helpers/profileHelper'
 
 enum stringFormatEnum {
 	Upercase,
@@ -26,12 +26,12 @@ const lngs: LangsType = {
 
 const avaliableLangs: string[] = Object.keys(lngs)
 
-const MAX_PROFILES = 5
+const MAX_PROFILES = 10
 
-const generateProfiles = (stringFormat: stringFormatEnum, profileNum: number) => {
+const generateProfiles = (profileNum: number) => {
 	const profiles: ProfileProps[] = []
 	for (let i = 0; i < profileNum; i++) {
-		profiles.push(formatProfile(stringFormat))
+		profiles.push(buildProfile())
 	}
 	return profiles
 }
@@ -48,7 +48,7 @@ function App() {
 
 	const [profileNum, setProfileNum] = useState(1)
 
-	const [profiles, setProfiles] = useState(generateProfiles(stringFormat, profileNum))
+	const [profiles, setProfiles] = useState(generateProfiles(profileNum))
 
 	const addProfileNum = () => {
 		if (profileNum === MAX_PROFILES) return
@@ -93,11 +93,9 @@ function App() {
 			? ` bg-gradient-to-bl shadow-md ${componentsColors.selected}`
 			: '')
 
-	// setProfiles(perfilesTemp)
-
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
-		setProfiles(generateProfiles(stringFormat, profileNum))
+		setProfiles(generateProfiles(profileNum))
 	}
 
 	return (
@@ -185,7 +183,7 @@ function App() {
 					</div>
 				</section>
 				{profiles.map((profile, index) => (
-					<Profile key={String(index)} {...profile} />
+					<Profile key={String(index)} {...formatProfile(profile, stringFormat)} />
 				))}
 			</main>
 		</>

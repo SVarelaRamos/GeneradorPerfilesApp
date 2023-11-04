@@ -1,3 +1,4 @@
+import { type ProfileProps } from '../components/Profile'
 import apellidos from '../data/apellidos.json'
 import calles from '../data/calles.json'
 import direcciones from '../data/direcciones.json'
@@ -20,7 +21,54 @@ export enum stringFormatEnum {
 	StartCase
 }
 
-export const formatProfile = (stringFormat = stringFormatEnum.Upercase) => {
+export const formatProfile = (
+	{
+		name,
+		firstLastName,
+		secondLastName,
+		nif,
+		streetType,
+		streetName,
+		number,
+		block,
+		floor,
+		door,
+		parish,
+		city,
+		cp,
+		province,
+		municipality,
+		locality,
+		phone,
+		mobilePhone,
+		email
+	}: ProfileProps,
+	stringFormat = stringFormatEnum.Upercase
+) => {
+	return {
+		name: formatValue(name, stringFormat),
+		firstLastName: formatValue(firstLastName, stringFormat),
+		secondLastName: formatValue(secondLastName, stringFormat),
+		nif: formatValue(nif, stringFormatEnum.Upercase),
+		streetType: formatValue(streetType, stringFormat),
+		streetName: formatValue(streetName, stringFormat),
+		number: formatValue(number, stringFormat),
+		block: formatValue(block, stringFormat),
+		floor: formatValue(floor, stringFormat),
+		door: formatValue(door, stringFormat),
+		parish: formatValue(parish, stringFormat),
+		city: formatValue(city, stringFormat),
+		cp: formatValue(cp, stringFormat),
+		province: formatValue(province, stringFormat),
+		municipality: formatValue(municipality, stringFormat),
+		locality: formatValue(locality, stringFormat),
+		phone: formatValue(phone, stringFormat),
+		mobilePhone: formatValue(mobilePhone, stringFormat),
+		email: formatValue(email, stringFormatEnum.Lowercase)
+	}
+}
+
+export const buildProfile = () => {
 	const uppercaseLetters = Array.from({ length: 26 }, (_, index) =>
 		String.fromCharCode('A'.charCodeAt(0) + index)
 	)
@@ -58,25 +106,25 @@ export const formatProfile = (stringFormat = stringFormatEnum.Upercase) => {
 		.normalize('NFD')
 
 	return {
-		name: formatValue(randName, stringFormat),
-		firstLastName: formatValue(randFirstLastname, stringFormat),
-		secondLastName: formatValue(randSecondLastname, stringFormat),
-		nif: formatValue(generateNIF(), stringFormatEnum.Upercase),
-		streetType: formatValue(randStreetType, stringFormat),
-		streetName: formatValue(randStreet, stringFormat),
-		number: formatValue(randNumber, stringFormat),
-		block: formatValue(randBlock, stringFormat),
-		floor: formatValue(randFloor, stringFormat),
-		door: formatValue(randDoor, stringFormat),
-		parish: formatValue(randAddress.PARROQUIA, stringFormat),
-		city: formatValue(randAddress.NOME, stringFormat),
-		cp: formatValue(randCP, stringFormat),
-		province: formatValue(randAddress.PROVINCIA, stringFormat),
-		municipality: formatValue(randAddress.CONCELLO, stringFormat),
-		locality: formatValue(randAddress.NOME, stringFormat),
-		phone: formatValue(randPhone, stringFormat),
-		mobilePhone: formatValue(randMobile, stringFormat),
-		email: formatValue(randEmail, stringFormatEnum.Lowercase)
+		name: randName,
+		firstLastName: randFirstLastname,
+		secondLastName: randSecondLastname,
+		nif: generateNIF(),
+		streetType: randStreetType,
+		streetName: randStreet,
+		number: randNumber,
+		block: randBlock,
+		floor: randFloor,
+		door: randDoor,
+		parish: randAddress.PARROQUIA,
+		city: randAddress.NOME,
+		cp: randCP,
+		province: randAddress.PROVINCIA,
+		municipality: randAddress.CONCELLO,
+		locality: randAddress.NOME,
+		phone: randPhone,
+		mobilePhone: randMobile,
+		email: randEmail
 	}
 }
 
