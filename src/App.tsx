@@ -138,14 +138,11 @@ function App() {
 								{t('button.generate')}
 							</button>
 							<div className='flex flex-row justify-start gap-1'>
-								<input
-									className={`w-12 rounded-md text-center ${colors.text} ${colors.simpleBg}`}
-									type='text'
-									min='1'
-									max='10'
-									value={profileNum}
-									disabled
-								/>
+								<span
+									className={`w-12 rounded-md border py-1 text-center ${colors.text} ${colors.simpleBg}`}
+								>
+									{profileNum}
+								</span>
 								<button
 									onClick={handleClickMinus}
 									className={`justify-start rounded-md border px-4 py-1 hover:bg-gradient-to-bl hover:shadow-md active:bg-gradient-to-b ${componentsColors.base}`}
