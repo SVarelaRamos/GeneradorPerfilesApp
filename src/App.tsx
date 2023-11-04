@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 import './App.css'
 import Profile, { type ProfileProps } from './components/Profile'
@@ -185,6 +186,17 @@ function App() {
 				{profiles.map((profile, index) => (
 					<Profile key={String(index)} {...formatProfile(profile, stringFormat)} />
 				))}
+				<Tooltip
+					id='copy-field-tooltip'
+					style={{
+						backgroundColor: colors.tooltip.dark.background,
+						fontSize: '0.75rem',
+						lineHeight: '1rem',
+						color: colors.tooltip.dark.text
+					}}
+					anchorSelect='.copy-field-tooltip'
+					content={t('tooltip.clickToCopy')}
+				/>
 			</main>
 		</>
 	)

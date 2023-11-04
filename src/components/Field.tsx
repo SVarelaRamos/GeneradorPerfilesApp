@@ -1,4 +1,3 @@
-import { Tooltip } from 'react-tooltip'
 import { colors } from '../helpers/colorsHelper'
 
 interface FieldProps {
@@ -8,12 +7,7 @@ interface FieldProps {
 	tooltipText?: string
 }
 
-export default function Field({
-	width,
-	labelName,
-	value,
-	tooltipText = 'Clica para copiar'
-}: FieldProps) {
+export default function Field({ width, labelName, value }: FieldProps) {
 	const widthClass: string = `flex flex-col justify-start ${width}`
 	const handleOnClick = async () => {
 		await navigator.clipboard.writeText(value)
@@ -31,17 +25,6 @@ export default function Field({
 					{value}
 				</span>
 			</div>
-			<Tooltip
-				id='copy-field-tooltip'
-				style={{
-					backgroundColor: colors.tooltip.dark.background,
-					fontSize: '0.75rem',
-					lineHeight: '1rem',
-					color: colors.tooltip.dark.text
-				}}
-				anchorSelect='.copy-field-tooltip'
-				content={tooltipText}
-			/>
 		</>
 	)
 }
