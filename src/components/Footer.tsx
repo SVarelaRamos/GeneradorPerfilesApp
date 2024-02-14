@@ -6,7 +6,7 @@ function Footer() {
 	const { t } = useTranslation()
 
 	return (
-		<footer className='flex flex-row items-center justify-center gap-6 border-t-2 border-blue-200/10 bg-slate-800/30 py-4 shadow-2xl shadow-blue-400/20'>
+		<footer className='mt-20 flex flex-row items-center justify-center gap-6 border-t-2 border-blue-200/10 bg-slate-800/30 py-4 shadow-2xl shadow-blue-400/20'>
 			<span className='text-xs'>
 				{t('footer.madeBy')} <em className='text-orange-400'>Sergio Varela</em>
 			</span>
