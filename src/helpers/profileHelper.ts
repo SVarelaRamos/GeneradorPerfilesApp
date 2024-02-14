@@ -15,7 +15,7 @@ interface DireccionesType {
 	CONCELLO: string
 	NOME: string
 }
-export enum stringFormatEnum {
+export enum StringFormatEnum {
 	Upercase,
 	Lowercase,
 	StartCase
@@ -43,13 +43,13 @@ export const formatProfile = (
 		mobilePhone,
 		email
 	}: ProfileProps,
-	stringFormat = stringFormatEnum.Upercase
+	stringFormat = StringFormatEnum.Upercase
 ) => {
 	return {
 		name: formatValue(name, stringFormat),
 		firstLastName: formatValue(firstLastName, stringFormat),
 		secondLastName: formatValue(secondLastName, stringFormat),
-		nif: formatValue(nif, stringFormatEnum.Upercase),
+		nif: formatValue(nif, StringFormatEnum.Upercase),
 		streetType: formatValue(streetType, stringFormat),
 		streetName: formatValue(streetName, stringFormat),
 		number: formatValue(number, stringFormat),
@@ -64,11 +64,19 @@ export const formatProfile = (
 		locality: formatValue(locality, stringFormat),
 		phone: formatValue(phone, stringFormat),
 		mobilePhone: formatValue(mobilePhone, stringFormat),
-		email: formatValue(email, stringFormatEnum.Lowercase)
+		email: formatValue(email, StringFormatEnum.Lowercase)
 	}
 }
 
-export const buildProfile = () => {
+export const generateProfiles = (profileNum: number) => {
+	const profiles: ProfileProps[] = []
+	for (let i = 0; i < profileNum; i++) {
+		profiles.push(buildProfile())
+	}
+	return profiles
+}
+
+const buildProfile = () => {
 	const uppercaseLetters = Array.from({ length: 26 }, (_, index) =>
 		String.fromCharCode('A'.charCodeAt(0) + index)
 	)
@@ -128,14 +136,14 @@ export const buildProfile = () => {
 	}
 }
 
-const formatValue = (value: string, stringFormat: stringFormatEnum) => {
-	if (stringFormat === stringFormatEnum.Upercase) {
+const formatValue = (value: string, stringFormat: StringFormatEnum) => {
+	if (stringFormat === StringFormatEnum.Upercase) {
 		return value.toLocaleUpperCase()
 	}
-	if (stringFormat === stringFormatEnum.Lowercase) {
+	if (stringFormat === StringFormatEnum.Lowercase) {
 		return value.toLocaleLowerCase()
 	}
-	if (stringFormat === stringFormatEnum.StartCase) {
+	if (stringFormat === StringFormatEnum.StartCase) {
 		const array = value
 			.toLocaleLowerCase()
 			.split(' ')
