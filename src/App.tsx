@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 import ButtonBox from './components/ButtonBox'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import Profile from './components/Profile'
 import { colors } from './helpers/colorsHelper'
@@ -48,7 +49,7 @@ function App() {
 	return (
 		<>
 			<Header />
-			<main className='w-full px-4'>
+			<main className='w-full flex-1 px-4'>
 				<div
 					className={`container mx-auto mt-8 rounded-xl border p-10 shadow-2xl backdrop-blur-md backdrop-brightness-90 ${colors.border} ${colors.shadow}`}
 				>
@@ -78,6 +79,7 @@ function App() {
 					content={t('tooltip.clickToCopy')}
 				/>
 			</main>
+			<Footer />
 		</>
 	)
 }

@@ -31,5 +31,8 @@
   },
   "tooltip": {
     "clickToCopy": "Clica para copiar"
+  },
+  "footer": {
+    "madeBy": "Hecho por"
   }
 }
