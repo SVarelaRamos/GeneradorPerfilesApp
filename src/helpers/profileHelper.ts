@@ -6,10 +6,6 @@ import nombres from '../data/nombres.json'
 
 interface DireccionesType {
 	PRO: number
-	CON: number
-	EC: number
-	ES: number
-	NUC: number
 	PARROQUIA: string
 	PROVINCIA: string
 	CONCELLO: string
