@@ -1,7 +1,7 @@
 import { type ProfileProps } from '../components/Profile'
 import apellidos from '../data/apellidos.json'
 import calles from '../data/calles.json'
-import direcciones from '../data/direcciones.json'
+import direcciones from '../data/direcciones.min.json'
 import nombres from '../data/nombres.json'
 
 interface DireccionesType {
